@@ -1,0 +1,919 @@
+// API LV2 Description
+
+// The header of each request must have
+//      Content-Type = "application/json"
+//      authKey = ""
+//      hash = sha256(body+salt)
+// With all POST request the response will be a requestId. LV1 API need to call corresponding GET request to get the status of the request and data back.
+
+
+// Request GET balanceOf
+{
+    "params" : [
+        {
+            "address" : "",
+            "tokenId" : 0
+        },
+        {
+            "address" : "",
+            "tokenId" : 0
+        }
+    ]
+}
+// Response
+{
+    "status" : "",
+    "description" : "",
+    "results" : [
+            {
+            "address" : "",
+            "tokenId" : 0,
+            "balance" : 0
+        },
+        {
+            "address" : "",
+            "tokenId" : 0,
+            "balance" : 0
+        }
+    ]
+}
+
+// Request GET owner
+{
+    "params" : [
+        {
+            "tokensIds" : [
+                0,
+                0,
+                0
+            ],
+        }
+    ]
+}
+// Response
+{
+    "status" : "",
+    "description" : "",
+    "results" : [
+        {
+            "tokenId" : 0,
+            "owner" : "address"
+        },
+        {
+            "tokenId" : 0,
+            "owner" : "address"
+        }
+    ]
+}
+
+// Request GET tokensOfAddress
+{
+    "params" : [
+        {
+            "addresses" : [
+                "address",
+                "address",
+                "address"
+            ],
+        }
+    ]
+}
+// Response
+{
+    "status" : "",
+    "description" : "",
+    "results" : [
+        {
+            "address" : "address",
+            "tokensIds" : [
+                0,
+                0,
+                0
+            ],
+            "tokensValues": [
+                0,
+                0
+            ],
+            "tokensTotalValue": 0
+        },
+        {
+            "address" : "address",
+            "tokensIds" : [
+                0,
+                0,
+                0
+            ],
+            "tokensValues": [
+                0,
+                0
+            ],
+            "tokensTotalValue": 0
+        }
+    ]
+}
+
+
+// Request GET checkExistance
+{
+    "params" : [
+        {
+            "tokensIds" : [
+                0,
+                0,
+                0
+            ],
+        }
+    ]
+}
+// Response
+{
+    "status" : "",
+    "description" : "",
+    "results" : [
+        {
+            "tokenId" : 0,
+            "existance" : True / False
+        },
+        {
+            "tokenId" : 0,
+            "existance" : True / False
+        }
+    ]
+}
+
+// Request GET tokensHistory
+{
+    "params" : [
+        {
+            "tokensIds" : [
+                0,
+                0,
+                0
+            ],
+        }
+    ]
+}
+// Response
+{
+    "status" : "",
+    "description" : "",
+    "results" : [
+        {
+            "tokenId" : 0,
+            "mint" : {
+                "timestamp" : "2021-07-17 20:41:12" (MySql DateTime),
+                "txHash" : "",
+            },
+            "transfers" : [
+                {
+                    "from" : "address",
+                    "to" : "address",
+                    "timestamp" : "2021-07-17 20:41:12" (MySql DateTime),
+                    "txHash" : "",
+                },
+                {
+                    "from" : "address",
+                    "to" : "address",
+                    "timestamp" : "2021-07-17 20:41:12" (MySql DateTime),
+                    "txHash" : "",
+                },
+            ],
+            "burn" : {
+                "timestamp" : "2021-07-17 20:41:12" (MySql DateTime),
+                "txHash" : "",
+            }      
+        },
+        {
+            "tokenId" : 0,
+            "mint" : {
+                "timestamp" : "2021-07-17 20:41:12" (MySql DateTime),
+                "txHash" : "",
+            },
+            "transfers" : [
+                {
+                    "from" : "address",
+                    "to" : "address",
+                    "timestamp" : "2021-07-17 20:41:12" (MySql DateTime),
+                    "txHash" : "",
+                },
+                {
+                    "from" : "address",
+                    "to" : "address",
+                    "timestamp" : "2021-07-17 20:41:12" (MySql DateTime),
+                    "txHash" : "",
+                },
+            ],
+            "burn" : {
+                "timestamp" : "2021-07-17 20:41:12" (MySql DateTime),
+                "txHash" : "",
+            }      
+        },
+    ]
+}
+
+// Request GET tokensList
+{
+    "params" : [
+        {
+            "type" : minted / existing / burned
+        }
+    ]
+}
+// Response
+{
+    "status" : "",
+    "description" : "",
+    "results" : [
+        {
+            "tokensIds" : [
+                0,
+                0,
+                0
+            ],
+        }
+    ]
+}
+
+// Request GET baseURI
+{
+    "params" : [
+        {
+            "tokensIds" : [
+                0,
+                0,
+                0
+            ],
+        }
+    ]
+}
+// Response
+{
+    "status" : "",
+    "description" : "",
+    "results" : [
+        {
+            "tokenId" : 0,
+            "URI" : ""
+        },
+        {
+            "tokenId" : 0,
+            "URI" : ""
+        }
+    ]
+}
+
+
+
+// Request POST editExistance (ONLY MASTER)
+{
+    "params" : [
+        {
+            "add" : [
+                0,
+                0,
+                0
+            ],
+            "remove" : [
+                0,
+                0,
+                0
+            ],
+        }
+    ],
+    "master_auth_key" : ""
+}
+// Response
+{
+    "status" : "",
+    "description" : "",
+    "results" : [
+        {
+            "added" : [
+                {
+                    "tokenId" : 0,
+                    "requestId" : 0
+                },
+                {
+                    "tokenId" : 0,
+                    "requestId" : 0
+                }
+            ],
+            "removed" : [
+                {
+                    "tokenId" : 0,
+                    "requestId" : 0
+                },
+                {
+                    "tokenId" : 0,
+                    "requestId" : 0
+                }
+            ],
+        }
+    ]
+}
+
+// Request GET editExistanceStatus (ONLY MASTER)
+{
+    "params" : [
+        {
+            "requestsIds" :[
+                0,
+                0,
+                0
+            ] 
+        }
+    ]
+}
+// Response
+{
+    "status" : "",
+    "description" : "",
+    "results" : [
+        {
+            "added" : [
+                {
+                    "status" : "queued" / "requested" / "signed" / "broadcasted" / "completed" / "failed",
+                    "requestId" : 0,
+                    "tokenId" : 0,
+                    "timestamp" : "2021-07-17 20:41:12" (MySql DateTime),
+                    "txHash" : "",
+                },
+                {
+                    "status" : "queued" / "requested" / "signed" / "broadcasted" / "completed" / "failed",
+                    "requestId" : 0,
+                    "tokenId" : 0,
+                    "timestamp" : "2021-07-17 20:41:12" (MySql DateTime),
+                    "txHash" : "",
+                }
+            ],
+            "removed" : [
+                {
+                    "status" : "queued" / "requested" / "signed" / "broadcasted" / "completed" / "failed",
+                    "requestId" : 0,
+                    "tokenId" : 0,
+                    "timestamp" : "2021-07-17 20:41:12" (MySql DateTime),
+                    "txHash" : "",
+                },
+                {
+                    "status" : "queued" / "requested" / "signed" / "broadcasted" / "completed" / "failed",
+                    "requestId" : 0,
+                    "tokenId" : 0,
+                    "timestamp" : "2021-07-17 20:41:12" (MySql DateTime),
+                    "txHash" : "",
+                }
+            ],
+        }
+    ]
+}
+
+
+
+
+
+// Request POST burn (ONLY MASTER)
+// each token must be trasnferred to master before burn
+{
+    "params" : [
+        {
+            "from" : "address",
+            "tokensIds" : [
+                0,
+                0,
+                0
+            ]
+        }
+    ],
+    "master_auth_key" : ""
+}
+// Response
+{
+    "status" : "",
+    "description" : "",
+    "results" : [
+        {
+            "burned" : [
+                {
+                    "tokenId" : 0,
+                    "requestId" : 0
+                },
+                {
+                    "tokenId" : 0,
+                    "requestId" : 0
+                }
+            ],
+        }
+    ]
+}
+
+
+// Request GET burnStatus (ONLY MASTER)
+{
+    "params" : [
+        {
+            "requestsIds" :[
+                0,
+                0,
+                0
+            ] 
+        }
+    ]
+}
+// Response
+{
+    "status" : "",
+    "description" : "",
+    "results" : [
+        {
+            "burned" : [
+                {
+                    "status" : "queued" / "requested" / "signed" / "broadcasted" / "completed" / "failed",
+                    "requestId" : 0,
+                    "tokensIds" : [
+                        0,
+                        0,
+                        0
+                    ],
+                    "timestamp" : "2021-07-17 20:41:12" (MySql DateTime),
+                    "txHash" : "",
+                },
+                {
+                    "status" : "queued" / "requested" / "signed" / "broadcasted" / "completed" / "failed",
+                    "requestId" : 0,
+                    "tokensIds" : [
+                        0,
+                        0,
+                        0
+                    ],
+                    "timestamp" : "2021-07-17 20:41:12" (MySql DateTime),
+                    "txHash" : "",
+                }
+            ]
+        }
+    ]
+}
+
+// Request POST mint (ONLY MASTER)
+{
+    "params" : [
+            {
+                "to" : "address",
+                "tokensIds" : [
+                    {
+                        "id" : 0,
+                        "value" : 0
+                    },
+                    {
+                        "id" : 0,
+                        "value" : 0
+                    },
+                    {
+                        "id" : 0,
+                        "value" : 0
+                    }
+                ]
+            },
+            {
+                "to" : "address",
+                "tokensIds" : [
+                    {
+                        "id" : 0,
+                        "value" : 0
+                    },
+                    {
+                        "id" : 0,
+                        "value" : 0
+                    },
+                    {
+                        "id" : 0,
+                        "value" : 0
+                    }
+                ]
+            },
+    ],
+    "master_auth_key" : ""
+}
+// Response
+{
+    "status" : "",
+    "description" : "",
+    "results" : [
+        {
+            "minted" : [
+                {
+                    "tokenId" : 0,
+                    "value" : 0,
+                    "requestId" : 0
+                },
+                {
+                    "tokenId" : 0,
+                    "value" : 0,
+                    "requestId" : 0
+                }
+            ],
+        }
+    ]
+}
+
+
+// Request GET mintStatus (ONLY MASTER)
+{
+    "params" : [
+        {
+            "requestsIds" :[
+                0,
+                0,
+                0
+            ] 
+        }
+    ]
+}
+
+// Response
+{
+    "status" : "",
+    "description" : "",
+    "results" : [
+        {
+            "minted" : [
+                {
+                    "status" : "queued" / "requested" / "signed" / "broadcasted" / "completed" / "failed",
+                    "requestId" : 0,
+                    "to" : "address",
+                    "tokensIds" : [
+                        {
+                            "id" : 0,
+                            "value" : 0
+                        },
+                        {
+                            "id" : 0,
+                            "value" : 0
+                        },
+                        {
+                            "id" : 0,
+                            "value" : 0
+                        }
+                    ],
+                    "timestamp" : "2021-07-17 20:41:12" (MySql DateTime),
+                    "txHash" : "",
+                },
+                {
+                    "status" : "queued" / "requested" / "signed" / "broadcasted" / "completed" / "failed",
+                    "requestId" : 0,
+                    "to" : "address",
+                    "tokensIds" : [
+                        {
+                            "id" : 0,
+                            "value" : 0
+                        },
+                        {
+                            "id" : 0,
+                            "value" : 0
+                        },
+                        {
+                            "id" : 0,
+                            "value" : 0
+                        }
+                    ],
+                    "timestamp" : "2021-07-17 20:41:12" (MySql DateTime),
+                    "txHash" : "",
+                }
+            ]
+        }
+    ]
+}
+
+// Request POST safeTransferFrom
+{
+    "params" : [
+        {
+            "toTransfer" : [
+                {
+                    "from" : "address",
+                    "to" : "address",
+                    "tokensIds" : [
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "from" : "address",
+                    "to" : "address",
+                    "tokensIds" : [
+                        0,
+                        0,
+                        0
+                    ]
+                },
+            ]
+        }
+    ],
+    "master_auth_key" : ""
+}
+// Response
+{
+    "status" : "",
+    "description" : "",
+    "results" : [
+        {
+            "transferred" : [
+                {
+                    "tokenId" : 0,
+                    "requestId" : 0
+                },
+                {
+                    "tokenId" : 0,
+                    "requestId" : 0
+                }
+            ],
+        }
+    ]
+}
+
+
+// Request GET safeTransferFromStatus (ONLY MASTER)
+{
+    "params" : [
+        {
+            "requestsIds" :[
+                0,
+                0,
+                0
+            ] 
+        }
+    ]
+}
+// Response
+{
+    "status" : "",
+    "description" : "",
+    "results" : [
+        {
+            "transferred" : [
+                {
+                    "status" : "queued" / "requested" / "signed" / "broadcasted" / "completed" / "failed",
+                    "requestId" : 0,
+                    "from" : "address",
+                    "to" : "address",
+                    "tokensIds" : [
+                        0,
+                        0,
+                        0
+                    ],
+                    "timestamp" : "2021-07-17 20:41:12" (MySql DateTime),
+                    "txHash" : "",
+                },
+                {
+                    "status" : "queued" / "requested" / "signed" / "broadcasted" / "completed" / "failed",
+                    "requestId" : 0,
+                    "to" : "address",
+                    "tokensIds" : [
+                        0,
+                        0,
+                        0
+                    ],
+                    "timestamp" : "2021-07-17 20:41:12" (MySql DateTime),
+                    "txHash" : "",
+                }
+            ]
+        }
+    ]
+}
+
+// Request POST setBaseURI (ONLY MASTER)
+{
+    "params" : [
+        {
+            "newURI" : ""
+        }
+    ],
+    "master_auth_key" : ""
+}
+//Response
+{
+    "status" : "",
+    "description" : "",
+    "results" : [
+        {
+            "requestId" : 0
+        }
+    ]
+}
+// Request GET setBaseURIStatus (ONLY MASTER)
+{
+    "params" : [
+        {
+            "requestsIds" :[
+                0
+            ] 
+        }
+    ]
+}
+// Response
+{
+    "status" : "",
+    "description" : "",
+    "results" : [
+        {
+            "status" : "queued" / "requested" / "signed" / "broadcasted" / "completed" / "failed",
+            "requestId" : 0,
+            "newURI" : "",
+            "timestamp" : "2021-07-17 20:41:12" (MySql DateTime),
+            "txHash" : "",
+        }
+    ]
+}
+
+// Request POST broadcastTx (ONLY MASTER)
+{
+    "params" : [
+        {
+            "txId" : 0,
+            "txHex" : "" 
+        }
+    ],
+    "request_processor_auth_key" : ""
+}
+// Response
+{
+    "status" : "",
+    "description" : "",
+    "results" : [
+        {
+            "txHash" : ""
+        }
+    ]
+}
+
+// Request GET auxTxData (ONLY MASTER)
+{
+    "params" : [
+        {
+            "address" : "",
+            "gasPrice" : False,
+            "txCount" : True,
+            "method" : "mint" / "mintBatch" / "burn" / "burnBatch" / "safeTransferFrom" / "safeTransferFromBatch" / "setURI" / "addExistance" / "removeExistance",
+            "fromAddress" : "address",
+            "toAddress" : "address",
+            "tokensIds" : [1,2,3],
+            "qty" : [1,1,1],
+            "data" : "0x0",
+            "aux_string" : ""
+        }
+    ],
+    "request_processor_auth_key" : ""
+}
+// Response
+{
+    "status" : "",
+    "description" : "",
+    "results" : [
+        {
+            "gasPrice" : 0,
+            "txCount" : 100,
+            "gasLimit" : 45000
+        }
+    ]
+}
+
+
+// Request POST sendPayReceipt
+{
+    "params" : [
+        {
+            "payReceipts" : [
+                {
+                    "to" : "address",
+                    "data" : "string"
+                },
+                {
+                    "to" : "address",
+                    "data" : "string"
+                }
+            ]
+        }
+    ]
+}
+// Response
+{
+    "status" : "",
+    "description" : "",
+    "results" : [
+        {
+            "toSend" : [
+                {
+                    "to" : "address",
+                    "data" : "string",
+                    "requestId" : 0
+                },
+                {
+                    "to" : "address",
+                    "data" : "string",
+                    "requestId" : 0
+                }
+            ],
+        }
+    ]
+}
+
+
+// Request GET sendPayReceiptStatus (ONLY MASTER)
+{
+    "params" : [
+        {
+            "requestsIds" :[
+                0,
+                0,
+                0
+            ] 
+        }
+    ]
+}
+// Response
+{
+    "status" : "",
+    "description" : "",
+    "results" : [
+        {
+            "receiptsSent" : [
+                {
+                    "status" : "queued" / "requested" / "signed" / "broadcasted" / "completed" / "failed",
+                    "requestId" : 0,
+                    "to" : "address",
+                    "data" : "string",
+                    "timestamp" : "2021-07-17 20:41:12" (MySql DateTime),
+                    "txHash" : "",
+                },
+                {
+                    "status" : "queued" / "requested" / "signed" / "broadcasted" / "completed" / "failed",
+                    "requestId" : 0,
+                    "to" : "address",
+                    "data" : "string",
+                    "timestamp" : "2021-07-17 20:41:12" (MySql DateTime),
+                    "txHash" : "",
+                }
+            ]
+        }
+    ]
+}
+
+
+// Request GET auxReceiptTxData (ONLY MASTER)
+{
+    "params" : [
+        {
+            "gasPrice" : False,
+            "txCount" : True,
+            "fromAddress" : "address",
+            "toAddress" : "address",
+            "data" : "0x0",
+            "aux_string" : ""
+        }
+    ],
+    "request_processor_auth_key" : ""
+}
+// Response
+{
+    "status" : "",
+    "description" : "",
+    "results" : [
+        {
+            "gasPrice" : 0,
+            "txCount" : 100,
+            "gasLimit" : 45000
+        }
+    ]
+}
+
+// Request POST broadcastReceiptTx (ONLY MASTER)
+{
+    "params" : [
+        {
+            "txId" : 0,
+            "txHex" : "" 
+        }
+    ],
+    "request_processor_auth_key" : ""
+}
+// Response
+{
+    "status" : "",
+    "description" : "",
+    "results" : [
+        {
+            "txHash" : ""
+        }
+    ]
+}
+
+
+// Request POST createWalletSFP (ONLY MASTER)
+{
+    "params" : [{}],
+    "master_auth_key" : ""
+}
+// Response
+{
+    "status" : "",
+    "wallet" : ""
+}

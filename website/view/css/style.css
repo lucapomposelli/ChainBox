@@ -1,0 +1,146 @@
+:root {
+    --bc-default: #fff;
+    --clr-default: #222;
+    --ff-default: Raleway, sans-serif;
+    --fs-default: 12px;
+    --lh-default: 1.4;
+
+    --clr-fincode: #288bcc;
+    --clr-darkgray: #333;
+    --clr-lightgray: #f2f2f2;
+}
+
+html, body {
+    background-color: var(--bc-default);
+    color: var(--clr-default);
+    font-family: var(--ff-default);
+    font-size: var(--fs-default);
+    line-height: var(--lh-default);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+hr {
+    border: 2px solid var(--clr-lightgray);
+}
+
+#btn_mmsk_connect, #btn_mmsk_install,
+#contractResult, .block__nav button, [id^=warning_] {
+    display: none;
+}
+
+#dashboard .page {
+    background-color: var(--clr-fincode);
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 65px 65px auto 55px;
+    grid-template-areas: 
+        "header header account"
+        "nav nav mmsk"
+        "sidebar main main"
+        "footer footer footer";
+    align-items: start;
+    justify-items: stretch;
+    min-height: 100vh;
+}
+
+#dashboard .page .block {
+    background-color: var(--background);
+    color: var(--text);
+    display: block;
+    padding: 15px;
+    height: 100%;
+}
+
+#dashboard .page .block.block__header {
+    grid-area: header;
+    --text: #fff;
+}
+
+#dashboard .page .block.block__account {
+    grid-area: account;
+    --text: #fff;
+    text-align: right;
+}
+
+#dashboard .page .block.block__nav {
+    grid-area: nav;
+    --background: #ecebeb;
+}
+
+#dashboard .page .block.block__mmsk {
+    grid-area: mmsk;
+    --background: #ecebeb;
+    text-align: right;
+}
+
+#dashboard .page .block.block__sidebar {
+    grid-area: sidebar;
+    --background: var(--clr-darkgray);
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+#dashboard .page .block.block__main {
+    grid-area: main;
+    --background: #fff;
+}
+
+#dashboard .page .block.block__footer {
+    grid-area: footer;
+    --background: var(--clr-fincode);
+    color: #fff;
+}
+
+
+#login .page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#login .page > div {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#login .page form {
+    min-width: 20vw;
+}
+
+.dark2, .hover-dark2:hover {
+    background-color: var(--clr-darkgray)!important;
+    color: #fff!important;
+}
+
+table.customer-summary tr>td {
+    text-transform: uppercase;
+}
+
+table.customer-summary tr>td:first-child {
+    width: 35%;
+}
+
+.loader {
+    animation: spin 2s linear infinite;
+    -webkit-animation: spin 2s linear infinite;
+    border: 4px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 4px solid #3498db;
+    height: 40px;
+    margin: 30px auto 15px;
+    width: 40px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
